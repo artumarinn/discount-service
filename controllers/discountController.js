@@ -1,6 +1,6 @@
 const discountModel = require('../models/discountModel');
 
-// Crear un descuento
+// Create a discount
 const createDiscount = async (req, res) => {
   const { name, percentage } = req.body;
   try {
@@ -11,7 +11,7 @@ const createDiscount = async (req, res) => {
   }
 };
 
-// Leer todos los descuentos
+// Retrieve all discounts
 const getAllDiscounts = async (req, res) => {
   try {
     const discounts = await discountModel.getAllDiscounts();
@@ -21,14 +21,14 @@ const getAllDiscounts = async (req, res) => {
   }
 };
 
-// Actualizar un descuento
+// Update a discount
 const updateDiscount = async (req, res) => {
   const { id } = req.params;
   const { name, percentage } = req.body;
   try {
     const updatedDiscount = await discountModel.updateDiscount(id, name, percentage);
     if (!updatedDiscount) {
-      return res.status(404).json({ message: 'Descuento no encontrado' });
+      return res.status(404).json({ message: 'Discount not found' });
     }
     res.json(updatedDiscount);
   } catch (error) {
@@ -36,7 +36,7 @@ const updateDiscount = async (req, res) => {
   }
 };
 
-// Eliminar un descuento
+// Delete a discount
 const deleteDiscount = async (req, res) => {
   const { id } = req.params;
   try {
@@ -53,3 +53,4 @@ module.exports = {
   updateDiscount,
   deleteDiscount,
 };
+
