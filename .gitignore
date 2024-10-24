@@ -1,0 +1,15 @@
+# Ignorar archivos de entorno
+.env
+
+# Ignorar módulos de Node.js
+node_modules/
+
+# Ignorar datos de Docker
+postgres-data/
+
+# Archivos de logs
+*.log
+
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db
