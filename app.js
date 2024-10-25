@@ -14,5 +14,5 @@ const PORT = 3000;
 
 // Start the server and listen on the specified port
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}`);
 });
