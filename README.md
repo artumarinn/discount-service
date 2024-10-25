@@ -97,7 +97,7 @@ Application entry point that sets up the Express server, middleware, and routes.
    You should see both PostgreSQL and Node.js containers running.
 
 5. **Access the API**
-   The API will be available at `http://localhost:3000/discounts`
+   The API will be available at `http://localhost:3000/api/discounts`
 
 ### Stopping the Service
 ```bash

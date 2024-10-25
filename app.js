@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Define routes for the discount API
-app.use('/discounts', discountRoutes);
+app.use('/api', discountRoutes);
 
 const PORT = 3000;
 

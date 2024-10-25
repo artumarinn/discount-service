@@ -1,24 +1,30 @@
 const pool = require('../config/database');
 
-// Crear un descuento
-const createDiscount = async (name, percentage) => {
-    const result = await pool.query('INSERT INTO discounts (name, percentage) VALUES ($1, $2) RETURNING *', [name, percentage]);
+// Create discounts
+const createDiscount = async (code, percentage) => {
+    const result = await pool.query('INSERT INTO discounts (code, percentage) VALUES ($1, $2) RETURNING *', [code, percentage]);
     return result.rows[0];
 };
 
-// Leer todos los descuentos
+// Read discounts
 const getAllDiscounts = async () => {
     const result = await pool.query('SELECT * FROM discounts');
     return result.rows;
 };
 
-// Actualizar un descuento
-const updateDiscount = async (id, name, percentage) => {
-    const result = await pool.query('UPDATE discounts SET name = $1, percentage = $2 WHERE id = $3 RETURNING *', [name, percentage, id]);
+// Read discounts by ID
+const getDiscountById = async (id) => {
+    const result = await pool.query('SELECT * FROM discounts WHERE id = $1', [id]);
     return result.rows[0];
 };
 
-// Eliminar un descuento
+// Update discounts
+const updateDiscount = async (id, name, percentage) => {
+    const result = await pool.query('UPDATE discounts SET code = $1, percentage = $2 WHERE id = $3 RETURNING *', [code, percentage, id]);
+    return result.rows[0];
+};
+
+// Delete discounts
 const deleteDiscount = async (id) => {
     await pool.query('DELETE FROM discounts WHERE id = $1', [id]);
 };
@@ -26,6 +32,7 @@ const deleteDiscount = async (id) => {
 module.exports = {
     createDiscount,
     getAllDiscounts,
+    getDiscountById,
     updateDiscount,
     deleteDiscount,
 };
