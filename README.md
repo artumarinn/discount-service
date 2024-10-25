@@ -19,7 +19,6 @@ This microservice is ideal for e-commerce platforms, retail management systems, 
 - **Express**: Web framework for Node.js to build APIs quickly and easily
 - **PostgreSQL**: Powerful, open-source relational database management system
 - **Docker**: Platform for developing, shipping, and running applications in containers
-- **Git**: Version control system for tracking changes in the codebase
 
 ## 📁 Project Structure
 
