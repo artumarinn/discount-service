@@ -4,23 +4,26 @@ const discountRoutes = require('./routes/discountRoutes');
 const Discount = require('./models/discountModel'); 
 const sequelize = require('./config/database'); 
 
+// Create an instance of the Express application
 const app = express();
 
-// Middleware para analizar solicitudes JSON entrantes
+// Middleware to parse incoming JSON requests
 app.use(bodyParser.json());
 
-// Definir rutas para la API de descuentos
+// Define routes for the discount API
 app.use('/api', discountRoutes);
 
-const PORT = 3000;
+const PORT = 3000; // Define the port for the server
 
-// Sincronizar modelos y luego iniciar el servidor
-sequelize.sync({ alter: true }) // `alter: true` actualizará la tabla si es necesario sin borrar datos
+// Synchronize models with the database and then start the server
+sequelize.sync({ alter: true }) 
     .then(() => {
+        // Start the server and listen on the defined port
         app.listen(PORT, () => {
-            console.log(`Server running on http://localhost:${PORT}`);
+            console.log(`Server running on http://localhost:${PORT}`); // Log server URL
         });
     })
     .catch((error) => {
+        // Log any errors that occur during server startup
         console.error('Unable to start the server:', error);
     });
