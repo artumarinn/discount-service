@@ -70,7 +70,7 @@ Application entry point that sets up the Express server, middleware, and routes.
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/<your-username>/discount-service.git
+   git https://github.com/artumarinn/discount-service.git
    cd discount-service
    ```
 
