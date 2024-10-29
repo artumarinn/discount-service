@@ -102,6 +102,41 @@ Application entry point that sets up the Express server, middleware, and routes.
 ```bash
 docker-compose down
 ```
+## 📜 API Documentation
+
+### Endpoints
+
+### GET `/api/v1`
+Retrieves all existing discounts.
+
+---
+
+### GET `/api/v1/{discount_id}`
+Retrieves a single discount by its ID.
+
+---
+
+### POST `/api/v1`
+Creates a new discount.
+
+---
+
+### PUT `/api/v1/{discount_id}`
+Update a discount.
+
+---
+
+### DELETE `/api/v1/{discount_id}`
+Delete a discount.
+
+**Request body:**
+```
+{
+  "code": "string",
+  "discountPercent": "number",
+  "isActive": "boolean"
+}
+``` 
 
 ## 💡 Implementation
 
