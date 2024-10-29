@@ -1,6 +1,5 @@
-# Discount Service Microservice
 
-## Overview 
+## Overview
 
 The Discount Service is a microservice that provides an efficient way to manage discounts within a broader application through a RESTful API. It enables users to create, retrieve, update, and delete discount records stored in a PostgreSQL database. Designed to be modular, scalable, and easy to deploy, this service is containerized using Docker, ensuring consistent performance across various environments.
 
@@ -8,17 +7,17 @@ This microservice is ideal for e-commerce platforms, retail management systems, 
 
 ## 🚀 Features
 
-- **Create Discounts**: Add new discounts with name and percentage
-- **Retrieve Discounts**: Fetch all existing discounts
-- **Update Discounts**: Modify existing discounts
-- **Delete Discounts**: Remove discounts from the database
+- **Create Discounts**: Add new discounts with name and percentage.
+- **Retrieve Discounts**: Fetch all existing discounts.
+- **Update Discounts**: Modify existing discounts.
+- **Delete Discounts**: Remove discounts from the database.
 
 ## 🛠 Tech Stack
 
-- **Node.js**: JavaScript runtime for building scalable network applications
-- **Express**: Web framework for Node.js to build APIs quickly and easily
-- **PostgreSQL**: Powerful, open-source relational database management system
-- **Docker**: Platform for developing, shipping, and running applications in containers
+- **Node.js**: JavaScript runtime for building scalable network applications.
+- **Express**: Web framework for Node.js to build APIs quickly and easily.
+- **PostgreSQL**: Powerful, open-source relational database management system.
+- **Docker**: Platform for developing, shipping, and running applications in containers.
 
 ## 📁 Project Structure
 
@@ -61,6 +60,42 @@ Defines API routes and maps HTTP methods to controller functions.
 ### `app.js`
 Application entry point that sets up the Express server, middleware, and routes.
 
+## 📊 How the Discount Service Works
+
+### Diagram Explanation
+
+The diagram illustrates the flow of requests and data within the Discount Service microservice:
+
+1. **User Interaction**:
+   - Users interact with the system through various interfaces such as web browsers, mobile apps, and back-office web applications.
+
+2. **API Gateway**:
+   - Although the API Gateway is not implemented in this specific setup, it is shown to represent the entry point for user requests. In a full system, the API Gateway would route requests to the appropriate microservices.
+
+3. **Discount Service**:
+   - The Discount Service is the core microservice responsible for managing discount operations. It handles incoming requests to create, retrieve, update, and delete discount records.
+
+4. **PostgreSQL Database**:
+   - The Discount Service communicates with a PostgreSQL database to store and retrieve discount data. This ensures data persistence and allows for efficient querying and manipulation of discount records.
+
+![image](https://github.com/user-attachments/assets/aa0060b3-c32f-4390-a27b-f7061115f648)
+
+### Workflow
+
+1. **Request Initiation**:
+   - Users send requests to the API Gateway, which would typically route these requests to the appropriate microservices, including the Discount Service.
+
+2. **Processing Requests**:
+   - The Discount Service processes the incoming requests. Depending on the request type (GET, POST, PUT, DELETE), it performs the necessary operations such as creating, retrieving, updating, or deleting discount records.
+
+3. **Database Interaction**:
+   - The Discount Service interacts with the PostgreSQL database to store or retrieve discount data. This ensures that all discount-related operations are backed by a reliable database system.
+
+4. **Response Generation**:
+   - After processing the request and interacting with the database, the Discount Service generates a response and sends it back to the user through the API Gateway.
+
+By following this architecture and workflow, the Discount Service ensures a modular, scalable, and efficient way to manage discounts within a broader application ecosystem.
+
 ## 🚀 Deployment Instructions
 
 ### Prerequisites
@@ -102,6 +137,7 @@ Application entry point that sets up the Express server, middleware, and routes.
 ```bash
 docker-compose down
 ```
+
 ## 📜 API Documentation
 
 ### Endpoints
@@ -136,7 +172,7 @@ Delete a discount.
   "discountPercent": "number",
   "isActive": "boolean"
 }
-``` 
+```
 
 ## 💡 Implementation
 
@@ -149,7 +185,7 @@ The Discount Service offers a clean and organized architecture:
 ## 📦 Docker Integration
 
 The service uses Docker Compose to manage:
-- **PostgreSQL database container****
+- **PostgreSQL database container**
 - **Node.js application container**
 - **Container networking**
 - **Environment variable management**
@@ -164,3 +200,4 @@ The microservice is built to be extensible. Future improvements could include:
 - **Enhancing error handling** and logging.
 - **Integrating with other microservices** for more comprehensive application scenarios.
 - **Implementing caching** to optimize read performance.
+
