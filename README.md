@@ -78,8 +78,6 @@ The diagram illustrates the flow of requests and data within the Discount Servic
 4. **PostgreSQL Database**:
    - The Discount Service communicates with a PostgreSQL database to store and retrieve discount data. This ensures data persistence and allows for efficient querying and manipulation of discount records.
 
-![image](https://github.com/user-attachments/assets/aa0060b3-c32f-4390-a27b-f7061115f648)
-
 ### Workflow
 
 1. **Request Initiation**:
