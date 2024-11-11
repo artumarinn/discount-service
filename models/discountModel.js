@@ -20,6 +20,14 @@ const Discount = sequelize.define('Discount', {
         type: DataTypes.BOOLEAN,       
         defaultValue: true             
     },
+    valid_until: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        valid_at: {
+            type: DataTypes.DATE,
+            allowNull: false
+        }
+    },
     created_at: {
         type: DataTypes.DATE,          
         defaultValue: Sequelize.NOW    

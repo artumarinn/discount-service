@@ -1,3 +1,4 @@
+const res = require('express/lib/response');
 const Discount = require('../models/discountModel');
 
 // Create a new discount
@@ -82,6 +83,27 @@ const deleteDiscount = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+
+// Validate a discount
+const valid_dicount: async ( req, res ) => {
+    const { id } = req.params; // Extract the discount ID from the request parameters
+    try {
+        // Find the discount in the database
+        const discount = await Discount.findByPk(id);
+        if (!discount) {
+            return res.status(404).json({ message: 'No discount found with ID ${id}. Please check and try again.' }); 
+        }
+        if (discount.is_active == false) {
+            return res.status(404).json({ message: 'This discount is inactive and cannot be used at this time' }); 
+        }
+        if (discount.expiration_date < new Date()) {
+            return res.status(404).json({ message: 'Discount not founThis discount has expired and is no longer valid' }); 
+        }
+        res.json(discount); 
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+} 
 
 // Export all controller functions for use in routing
 module.exports = {
