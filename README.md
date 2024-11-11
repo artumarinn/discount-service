@@ -160,6 +160,25 @@ Update a discount.
 
 ---
 
+### PATCH `/api/v1/invalidate-expired/`
+Invalidates a discount by setting its valid_until date to the current date. This endpoint is used to mark a discount as invalid if it has expired.
+
+**Request body:**
+```
+{
+  "valid_until": "YYYY-MM-DDTHH:MM:SSZ"
+}
+```
+
+**Responsive:**
+```
+{
+  "message": "Discount invalidated successfully"
+}
+```
+
+---
+
 ### DELETE `/api/v1/{discount_id}`
 Delete a discount.
 
