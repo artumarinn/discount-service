@@ -13,3 +13,6 @@ postgres-data/
 # Temporary system files
 .DS_Store
 Thumbs.db
+
+# Ignore idea
+.idea
