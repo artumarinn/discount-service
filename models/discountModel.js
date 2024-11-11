@@ -22,11 +22,7 @@ const Discount = sequelize.define('Discount', {
     },
     valid_until: {
         type: DataTypes.DATE,
-        allowNull: false,
-        valid_at: {
-            type: DataTypes.DATE,
-            allowNull: false
-        }
+        allowNull: true
     },
     created_at: {
         type: DataTypes.DATE,          

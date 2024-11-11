@@ -1,5 +1,6 @@
 const res = require('express/lib/response');
 const Discount = require('../models/discountModel');
+const { Op } = require('sequelize');
 
 // Create a new discount
 const createDiscount = async (req, res) => {
@@ -84,27 +85,30 @@ const deleteDiscount = async (req, res) => {
     }
 };
 
-// Validate a discount
-const valid_dicount: async ( req, res ) => {
-    const { id } = req.params; // Extract the discount ID from the request parameters
-    try {
-        // Find the discount in the database
-        const discount = await Discount.findByPk(id);
-        if (!discount) {
-            return res.status(404).json({ message: 'No discount found with ID ${id}. Please check and try again.' }); 
-        }
-        if (discount.is_active == false) {
-            return res.status(404).json({ message: 'This discount is inactive and cannot be used at this time' }); 
-        }
-        if (discount.expiration_date < new Date()) {
-            return res.status(404).json({ message: 'Discount not founThis discount has expired and is no longer valid' }); 
-        }
-        res.json(discount); 
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-} 
+const expireDiscount = async (req, res) => {
 
+        try {
+          const currentDate = new Date();
+          const expiredDiscounts = await Discount.findAll({
+            where: {
+              valid_until: {
+                [Op.lt]: currentDate,
+              },
+              is_active: true,
+            },
+          });
+      
+          // Cambiar el estado de is_active a false para los descuentos vencidos
+          for (const discount of expiredDiscounts) {
+            await discount.update({ is_active: false });
+          }
+      
+          res.status(200).json({ message: 'Descuentos vencidos invalidados' });
+        } catch (error) {
+          res.status(500).json({ error: error.message });
+        }
+      };
+      
 // Export all controller functions for use in routing
 module.exports = {
     createDiscount,
@@ -112,4 +116,5 @@ module.exports = {
     getDiscountById,
     updateDiscount,
     deleteDiscount,
+    expireDiscount,
 };
