@@ -26,6 +26,7 @@ services:
       DB_NAME: ${DB_NAME}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_PORT: ${DB_PORT}
+      DB_SSL: ${DB_SSL}
     ports:
       - "3000:3000"
     depends_on:

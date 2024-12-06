@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const discountRoutes = require('./routes/discountRoutes');
 const Discount = require('./models/discountModel');
 const sequelize = require('./config/database');
+require('dotenv').config();
 
 // Create an instance of the Express application
 const app = express();
