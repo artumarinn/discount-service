@@ -1,5 +1,5 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const { sequelize } = require('../config/database');
+const sequelize = require('../config/database'); 
+const { DataTypes, Sequelize } = require('sequelize');
 
 // Define the Discount model
 const Discount = sequelize.define('Discount', {
