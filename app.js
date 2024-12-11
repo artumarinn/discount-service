@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 app.use('/api', discountRoutes);
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 if (process.env.NODE_ENV !== 'test') {
 // Synchronize models with the database and then start the server
