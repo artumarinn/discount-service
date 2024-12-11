@@ -1,6 +1,7 @@
 const request = require('supertest');
 const app = require('../app');
 require('dotenv').config();
+const sequelize = require('../config/database');
 
 describe('GET /api/v1/', () => {
   it('should return all discounts', async () => {
