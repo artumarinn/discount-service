@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Expone el puerto que usará la aplicación
-EXPOSE 8080
+EXPOSE 3000
 
 # Comando para iniciar la aplicación
 CMD ["node", "app.js"]
