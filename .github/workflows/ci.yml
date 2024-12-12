@@ -1,0 +1,19 @@
+name: CI for DiscountService
+on:
+    push:
+        branches:
+            -main # se ejecutara en rama main
+
+jobs:
+    buil-and-test:
+        runs-on: ubuntu-latest # se usa una maquina virtual linux
+        steps:
+            - uses: actions/checkout@v3 # clona el repositorio
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                node-version: 16
+            - name: Install dependecies
+              run: npm install
+            - name: Run test
+              run: npm test # tener pruebas configuradas en el proyecto
